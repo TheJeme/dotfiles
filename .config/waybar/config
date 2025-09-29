@@ -1,60 +1,69 @@
 {
-  "layer": "top",
-  "position": "top",
-  "height": 30,
-  "spacing": 8,
+    "layer": "top",
+    "spacing": 0,
+    "height": 0,
 
-  "modules-left": ["sway/workspaces", "sway/mode"],
-  "modules-center": ["clock"],
-  "modules-right": ["pulseaudio", "network", "battery", "tray"],
+    // you can change the margins to your liking.
+    "margin-top": 0,
+    "margin-right": 0,
+    "margin-bottom": 0,
+    "margin-left": 0,
 
-  "sway/workspaces": {
-    "all-outputs": true,
-    "disable-scroll": false,
-    "format": "{name}",
-    "persistent_workspaces": {
-      "1": ["1"], "2": ["2"], "3": ["3"], "4": ["4"], "5": ["5"]
+    "modules-left": [
+        "sway/workspaces"
+    ],
+
+    "modules-center": [
+    ],
+
+    "modules-right": [
+        "tray",
+        "battery",
+        "network",
+        "pulseaudio",
+        "clock"
+    ],
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "tooltip": false
+    },
+
+    "tray": {
+        "spacing": 10,
+        "tooltip": false
+    },
+
+    "clock": {
+        "format": "{:%a %d, %I:%M %p}",
+        "tooltip": false
+    },
+
+    "battery": {
+        "format": "bat {capacity}%",
+        "interval": 5,
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "tooltip": false
+    },
+
+    "network": {
+        "format-wifi" : "wifi up",
+        "format-ethernet": "enth up",
+        "format-disconnected" : "no network",
+        "tooltip": false
+    },
+
+    "pulseaudio": {
+        "scroll-step": 5,
+        "max-volume": 150,
+        "format": "vol {volume}%",
+        "format-bluetooth": "vol {volume}%",
+        "nospacing": 1,
+        "on-click": "pavucontrol",
+        "tooltip": false
     }
-  },
-
-  "clock": {
-    "interval": 1,
-    "format": "{:%a %d.%m. %H:%M}",
-    "tooltip": true,
-    "tooltip-format": "{:%Y-%m-%d %H:%M:%S}"
-  },
-
-  "pulseaudio": {
-    "format": "{volume}% {icon}",
-    "format-muted": "muted ",
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
-    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
-    "format-icons": {
-      "headphones": "",
-      "default": ["","",""]
-    }
-  },
-
-  "network": {
-    "format-wifi": " {essid} {signalStrength}%",
-    "format-ethernet": "󰈀 {ifname}",
-    "format-disconnected": " offline",
-    "tooltip-format": "{ifname} via {gwaddr}\nIP: {ipaddr}\nUp: {bandwidthUpBits}  Down: {bandwidthDownBits}",
-    "on-click": "nm-connection-editor"
-  },
-
-  "battery": {
-    "states": { "warning": 25, "critical": 12 },
-    "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
-    "format-plugged": "{capacity}% ",
-    "format-alt": "{time} {icon}",
-    "format-icons": ["","","","",""]
-  },
-
-  "tray": {
-    "icon-size": 16,
-    "spacing": 8
-  }
 }
