@@ -1,0 +1,45 @@
+window {
+  margin: 0px;
+  border: 1px solid #30363d;
+  background-color: rgba(17,17,17,0.95);
+}
+
+#input {
+  margin: 8px;
+  padding: 10px 12px;
+  border: 1px solid #30363d;
+  background-color: #0f1115;
+  color: #e6edf3;
+}
+
+#inner-box {
+  margin: 8px;
+}
+
+#outer-box {
+  margin: 0px 8px 8px 8px;
+}
+
+#scroll {
+  margin: 0px;
+}
+
+#img {
+  margin-right: 8px;
+}
+
+#text {
+  color: #e6edf3;
+}
+
+#entry:selected {
+  background-color: #1f2329;
+}
+
+#entry:selected #text {
+  color: #ffffff;
+}
+
+#prompt {
+  color: #96cafa;
+}
