@@ -3,8 +3,8 @@ set $mod Mod4
 set $term kitty
 set $menu wofi --show drun
 set $fileman thunar
-set $browser firefox
-set $browser_inc "firefox --private-window"
+set $browser chromium
+set $browser_inc "chromium --incognito"
 set $ai_url "https://chat.openai.com/"
 
 # DBus env for portals/screenshare
@@ -82,24 +82,12 @@ bindsym $mod+Shift+b exec $browser_inc
 bindsym $mod+f       exec $fileman
 bindsym $mod+t       exec kitty -e btop
 bindsym $mod+n       exec kitty -e nvim
-# Spotify (Flatpak) if installed, else open web
-bindsym $mod+m       exec bash -lc 'command -v spotify >/dev/null && spotify || flatpak run com.spotify.Client 2>/dev/null || $browser "https://open.spotify.com"'
-# 1Password (Flatpak) if present
-bindsym $mod+slash   exec bash -lc 'flatpak run com.onepassword.OnePassword 2>/dev/null || $browser "https://1password.com/signin/"'
 # AI
 bindsym $mod+a       exec $browser "$ai_url"
-# Messengers (Signal / WhatsApp / Google Chat) if available; else web
-bindsym $mod+g       exec bash -lc 'flatpak run org.signal.Signal 2>/dev/null || $browser "https://signal.org/download/"'
-bindsym $mod+Shift+g exec bash -lc 'flatpak run io.github.mimbrero.WhatsAppDesktop 2>/dev/null || $browser "https://web.whatsapp.com"'
-bindsym $mod+Mod1+g  exec $browser "https://chat.google.com"
 # Docker (LazyDocker)
 bindsym $mod+d       exec kitty -e lazydocker
-# Obsidian
-bindsym $mod+o       exec bash -lc 'flatpak run md.obsidian.Obsidian 2>/dev/null || $browser "https://obsidian.md"'
 # X (pick your app and replace)
 bindsym $mod+x       exec $browser "https://x.com"
-# LocalSend share menu
-bindsym Ctrl+$mod+s  exec bash -lc 'flatpak run org.localsend.localsend_app 2>/dev/null || localsend'
 
 ##############################################################################
 # Capture
