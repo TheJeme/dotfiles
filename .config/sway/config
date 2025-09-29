@@ -1,0 +1,155 @@
+### Sway config — Omarchy-style keybinds (Super = $mod)
+set $mod Mod4
+set $term kitty
+set $menu wofi --show drun
+set $fileman thunar
+set $browser firefox
+set $browser_inc "firefox --private-window"
+set $ai_url "https://chat.openai.com/"
+
+# DBus env for portals/screenshare
+exec_always dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
+exec_always systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP
+
+# Autostart daemons
+exec_always waybar
+exec_always wl-paste -t text --watch cliphist store
+exec_always kanshi
+exec_always nm-applet
+exec_always blueman-applet
+
+# Input
+input * {
+  xkb_layout fi
+}
+
+##############################################################################
+# Navigating
+##############################################################################
+# Launchers / menus
+bindsym $mod+space exec $menu
+bindsym $mod+Mod1+space exec "~/.local/bin/omarchy-menu"        # placeholder menu (optional)
+bindsym $mod+Escape exec "~/.local/bin/power-menu"              # lock/suspend/restart/shutdown
+
+# Windows & workspaces
+bindsym $mod+w kill
+bindsym Ctrl+Mod1+Delete exec "~/.local/bin/close-all-windows"
+
+# Workspaces 1..4
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+
+# Next/prev/former WS
+bindsym $mod+Mod1+Tab workspace next
+bindsym $mod+Mod1+Shift+Tab workspace prev
+bindsym $mod+Ctrl+Tab workspace back_and_forth
+
+# Focus/move
+bindsym $mod+Left  focus left
+bindsym $mod+Right focus right
+bindsym $mod+Up    focus up
+bindsym $mod+Down  focus down
+
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Down  move down
+
+# Fullscreen / width-ish
+bindsym F11 fullscreen toggle
+bindsym Shift+F11 fullscreen global # “force fullscreen” flavor
+# Alt+F11 "full width": best-effort — make container tiled and split h
+bindsym Mod1+F11 splith
+
+# Resize “grow” mappings (approximate Omarchy semantics)
+bindsym $mod+equal        resize grow width 10 px
+bindsym $mod+minus        resize shrink width 10 px
+bindsym $mod+Shift+equal  resize grow height 10 px
+bindsym $mod+Shift+minus  resize shrink height 10 px
+
+##############################################################################
+# Launching apps
+##############################################################################
+bindsym $mod+Return exec $term
+bindsym $mod+b       exec $browser
+bindsym $mod+Shift+b exec $browser_inc
+bindsym $mod+f       exec $fileman
+bindsym $mod+t       exec kitty -e btop
+bindsym $mod+n       exec kitty -e nvim
+# Spotify (Flatpak) if installed, else open web
+bindsym $mod+m       exec bash -lc 'command -v spotify >/dev/null && spotify || flatpak run com.spotify.Client 2>/dev/null || $browser "https://open.spotify.com"'
+# 1Password (Flatpak) if present
+bindsym $mod+slash   exec bash -lc 'flatpak run com.onepassword.OnePassword 2>/dev/null || $browser "https://1password.com/signin/"'
+# AI
+bindsym $mod+a       exec $browser "$ai_url"
+# Messengers (Signal / WhatsApp / Google Chat) if available; else web
+bindsym $mod+g       exec bash -lc 'flatpak run org.signal.Signal 2>/dev/null || $browser "https://signal.org/download/"'
+bindsym $mod+Shift+g exec bash -lc 'flatpak run io.github.mimbrero.WhatsAppDesktop 2>/dev/null || $browser "https://web.whatsapp.com"'
+bindsym $mod+Mod1+g  exec $browser "https://chat.google.com"
+# Docker (LazyDocker)
+bindsym $mod+d       exec kitty -e lazydocker
+# Obsidian
+bindsym $mod+o       exec bash -lc 'flatpak run md.obsidian.Obsidian 2>/dev/null || $browser "https://obsidian.md"'
+# X (pick your app and replace)
+bindsym $mod+x       exec $browser "https://x.com"
+# LocalSend share menu
+bindsym Ctrl+$mod+s  exec bash -lc 'flatpak run org.localsend.localsend_app 2>/dev/null || localsend'
+
+##############################################################################
+# Capture
+##############################################################################
+# Screenshots
+bindsym Print            exec ~/.local/bin/capture-shot region
+bindsym Shift+Print      exec ~/.local/bin/capture-shot window
+bindsym Ctrl+Print       exec ~/.local/bin/capture-shot output
+# Screenrecord
+bindsym Mod1+Print       exec ~/.local/bin/capture-rec region
+bindsym Ctrl+Mod1+Print  exec ~/.local/bin/capture-rec output
+# Color picker (requires hyprpicker; else gcolor3)
+bindsym $mod+Print       exec bash -lc 'command -v hyprpicker >/dev/null && hyprpicker -a || gcolor3'
+
+# Copy URL from Chromium/”app” (best-effort: focuses address bar + copy)
+bindsym Mod1+Shift+l exec bash -lc '~/.local/bin/copy-browser-url'
+
+##############################################################################
+# Notifications (mako)
+##############################################################################
+bindsym $mod+comma          exec makoctl dismiss
+bindsym Shift+$mod+comma    exec makoctl dismiss -a
+bindsym Ctrl+$mod+comma     exec bash -lc 'makoctl mode | grep -q do-not-disturb && makoctl mode -r do-not-disturb || makoctl mode -a do-not-disturb'
+
+##############################################################################
+# Style
+##############################################################################
+# Theme picker & background cycling (helper scripts below)
+bindsym Ctrl+Shift+$mod+space exec ~/.local/bin/theme-picker
+bindsym Ctrl+$mod+space       exec ~/.local/bin/bg-next
+# Toggle transparency (floating + opacity)
+bindsym $mod+BackSpace exec bash -lc '~/.local/bin/toggle-opacity'
+
+##############################################################################
+# Toggles
+##############################################################################
+bindsym Ctrl+$mod+i exec ~/.local/bin/toggle-idle
+bindsym Ctrl+$mod+n exec ~/.local/bin/toggle-nightlight
+bindsym Shift+$mod+space exec ~/.local/bin/toggle-waybar
+# Next audio output (PipeWire)
+bindsym $mod+XF86AudioMute exec ~/.local/bin/next-audio-sink
+
+##############################################################################
+# Misc recommended
+##############################################################################
+# Bar, locker, idle (adjust to taste)
+exec_always swayidle -w \
+  timeout 600 'swaylock -f -e' \
+  timeout 1200 'systemctl suspend' \
+  before-sleep 'swaylock -f -e'
+
+# Wallpaper (swaybg reads ~/.config/backgrounds/current.jpg)
+exec_always swaybg -i ~/.config/backgrounds/current.jpg -m fill
