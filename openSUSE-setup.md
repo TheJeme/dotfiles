@@ -7,7 +7,7 @@ sudo zypper refresh && sudo zypper dup -y
 ## Install Packages
 
 ```sh
-sudo zypper install -y sway xdg-desktop-portal xdg-desktop-portal-wlr grim slurp wf-recorder swappy wl-clipboard pipewire pipewire-alsa pipewire-pulseaudio pipewire-jack wireplumber mako cliphist brightnessctl playerctl wofi waybar swayidle swaylock wlogout noto-fonts fira-code-fonts nerd-fonts git-lfs lazygit gh zoxide fzf inkscape neofetch btop rsync tailscale mpv ripgrep eza fd curl wget docker docker-compose lazydocker neovim steam firefox chromium fastfetch krita libreoffice gamemode lutris flatpak rustup kitty thunar gvfs tumbler blueman kanshi gcc gamescope opi papirus-icon-theme
+sudo zypper install -y sway xdg-desktop-portal xdg-desktop-portal-wlr grim slurp wf-recorder swappy wl-clipboard pipewire pipewire-alsa pipewire-pulseaudio pipewire-jack wireplumber mako cliphist brightnessctl playerctl wofi waybar swayidle swaylock wlogout noto-fonts fira-code-fonts git-lfs lazygit gh zoxide fzf inkscape neofetch btop rsync tailscale mpv ripgrep eza fd curl wget docker docker-compose neovim steam firefox chromium fastfetch krita libreoffice gamemode lutris flatpak rustup kitty thunar gvfs tumbler blueman kanshi gcc gamescope opi papirus-icon-theme
 ```
 
 
