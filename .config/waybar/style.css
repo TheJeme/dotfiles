@@ -1,0 +1,13 @@
+* {
+  font-family: JetBrainsMono Nerd Font, sans-serif;
+  font-size: 12px;
+}
+
+window#waybar {
+  background: #222222;
+  color: #ffffff;
+}
+
+#clock {
+  padding: 0 10px;
+}
