@@ -1,13 +1,146 @@
+/* ---------- Paletti ---------- */
+@define-color bg        #111318;
+@define-color bg-alt    #171a21;
+@define-color surf      #1e222b;
+@define-color text      #e6e8ef;
+@define-color subtext   #9aa3b2;
+@define-color accent    #6aa6ff;
+@define-color ok        #6dd17c;
+@define-color warn      #f6c177;
+@define-color crit      #ef6a6a;
+
+/* ---------- Yleinen ---------- */
 * {
-  font-family: JetBrainsMono Nerd Font, sans-serif;
-  font-size: 12px;
+  font-family: JetBrainsMono Nerd Font, SF Pro Display, Inter, Segoe UI, Roboto, Cantarell, sans-serif;
+  font-size: 12.5px;
 }
 
 window#waybar {
-  background: #222222;
-  color: #ffffff;
+  background: alpha(@bg, 0.95);
+  color: @text;
+  border-bottom: 1px solid alpha(@surf, 0.8);
+  box-shadow: 0 8px 24px 0 rgba(0,0,0,0.45);
 }
 
+/* estä “hyppimistä” kun moduulit vaihtuvat */
+.modules-left, .modules-center, .modules-right {
+  padding: 4px 6px;
+  margin: 0 4px;
+}
+
+/* ---------- Yhteiset moduulityylit ---------- */
+#workspaces button,
+#clock, #pulseaudio, #wireplumber, #network, #battery, #tray,
+#cpu, #memory, #temperature, #backlight, #custom-*
+{
+  background: @surf;
+  color: @text;
+  border-radius: 12px;
+  padding: 6px 10px;
+  margin: 0 6px;
+  border: 1px solid alpha(@bg-alt, 0.8);
+}
+
+/* ikonien ja tekstin pieni väli */
+#pulseaudio, #wireplumber, #network, #battery, #backlight,
+#cpu, #memory, #temperature {
+  gap: 6px;
+}
+
+/* hover */
+#workspaces button:hover,
+#clock:hover, #pulseaudio:hover, #network:hover, #battery:hover {
+  background: mix(@surf, @accent, 12%);
+  transition: background 120ms ease;
+}
+
+/* ---------- Workspaces (pilleri-tabit) ---------- */
+#workspaces {
+  padding: 0 4px;
+}
+#workspaces button {
+  background: @bg-alt;
+  color: @subtext;
+  padding: 6px 10px;
+  margin: 0 4px;
+  border-radius: 10px;
+  border: 1px solid alpha(@surf, 0.7);
+}
+#workspaces button.focused {
+  background: @accent;
+  color: #0b1020;
+  border-color: alpha(@accent, 0.9);
+  font-weight: 600;
+}
+#workspaces button.urgent {
+  background: @crit;
+  color: #1b0c0c;
+  border-color: alpha(@crit, 0.9);
+}
+#workspaces button.persistent,
+#workspaces button.visible {
+  color: @text;
+}
+
+/* ---------- Moduulikohtaiset ---------- */
 #clock {
-  padding: 0 10px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+#pulseaudio.muted,
+#wireplumber.muted {
+  color: @subtext;
+  background: alpha(@surf, 0.7);
+}
+
+#network.disconnected {
+  background: mix(@surf, @warn, 10%);
+  color: @warn;
+  border-color: alpha(@warn, 0.6);
+}
+
+#battery.charging {
+  background: mix(@surf, @ok, 14%);
+  color: @ok;
+  border-color: alpha(@ok, 0.7);
+}
+#battery.warning:not(.charging) {
+  background: mix(@surf, @warn, 14%);
+  color: @warn;
+  border-color: alpha(@warn, 0.7);
+}
+#battery.critical:not(.charging) {
+  background: mix(@surf, @crit, 16%);
+  color: @crit;
+  border-color: alpha(@crit, 0.7);
+}
+
+/* Tray ikonit eroteltu mutta siistit */
+#tray {
+  padding: 4px 6px;
+}
+#tray > .passive {
+  opacity: 0.6;
+}
+#tray > .needs-attention {
+  background: mix(@surf, @warn, 18%);
+  border-radius: 8px;
+}
+
+/* ---------- Tooltips ---------- */
+tooltip {
+  background: @bg-alt;
+  border: 1px solid alpha(@surf, 0.8);
+  border-radius: 10px;
+}
+tooltip label {
+  color: @text;
+  padding: 8px 10px;
+}
+
+/* ---------- Pienet ruudut ---------- */
+@media (max-width: 1600px) {
+  * { font-size: 12px; }
+  #workspaces button { padding: 5px 8px; }
 }
