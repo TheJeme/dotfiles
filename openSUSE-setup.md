@@ -7,7 +7,12 @@ sudo zypper refresh && sudo zypper dup -y
 ## Install Packages
 
 ```sh
-sudo zypper install -y sway xdg-desktop-portal xdg-desktop-portal-wlr grim slurp wf-recorder swappy wl-clipboard pipewire pipewire-alsa pipewire-pulseaudio pipewire-jack wireplumber mako cliphist brightnessctl playerctl wofi waybar swayidle swaylock-effects wlogout noto-fonts noto-fonts-cjk noto-fonts-emoji fira-code-fonts nerd-fonts git-lfs lazygit gh zoxide fzf inkscape neofetch btop rsync tailscale mpv ripgrep eza fd curl wget docker docker-compose lazydocker neovim vscode steam firefox chromium impala fastfetch krita localsend libreoffice obs-studio gamemode lutris flatpak rustup kitty thunar thunar-plugins gvfs tumbler network-manager-applet blueman kanshi gcc python python-pip gamescope
+sudo zypper install -y sway xdg-desktop-portal xdg-desktop-portal-wlr grim slurp wf-recorder swappy wl-clipboard pipewire pipewire-alsa pipewire-pulseaudio pipewire-jack wireplumber mako cliphist brightnessctl playerctl wofi waybar swayidle swaylock-effects wlogout noto-fonts fira-code-fonts nerd-fonts git-lfs lazygit gh zoxide fzf inkscape neofetch btop rsync tailscale mpv ripgrep eza fd curl wget docker docker-compose lazydocker neovim steam firefox chromium fastfetch krita libreoffice gamemode lutris flatpak rustup kitty thunar thunar-plugins gvfs tumbler blueman kanshi gcc python python-pip gamescope opi
+```
+
+
+```sh
+opi vscode
 ```
 
 ```sh
@@ -20,6 +25,9 @@ flatpak install -y flathub com.discordapp.Discord
 
 ```sh
 flatpak install -y flathub net.davidotek.pupgui2 
+```
+```sh
+flatpak install -y flathub org.localsend.localsend_app
 ```
 
 ## Installed applications
