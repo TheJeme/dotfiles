@@ -20,14 +20,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 ```
 
 ```sh
-flatpak install -y flathub com.discordapp.Discord
-```
-
-```sh
-flatpak install -y flathub net.davidotek.pupgui2 
-```
-```sh
-flatpak install -y flathub org.localsend.localsend_app
+flatpak install -y flathub com.discordapp.Discord net.davidotek.pupgui2 org.localsend.localsend_app
 ```
 
 ## Installed applications
@@ -45,4 +38,3 @@ flatpak install -y flathub org.localsend.localsend_app
 - [eza](https://github.com/eza-community/eza)
 - [mpv](https://mpv.io/)
 - [fd](https://github.com/sharkdp/fd)
-- 
