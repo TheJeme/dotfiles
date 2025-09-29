@@ -1,0 +1,19 @@
+# readable, dim bg-friendly
+file: default
+dir: bold blue
+link: cyan
+multi_hard_link: default
+fifo: magenta
+socket: magenta
+block_device: yellow
+char_device: yellow
+door: magenta
+setuid: red
+setgid: red
+capability: yellow
+# git
+git_added: green
+git_modified: yellow
+git_ignored: dimmed
+git_conflict: red
+git_untracked: blue

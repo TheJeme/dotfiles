@@ -1,0 +1,7 @@
+--hidden
+--glob=!.git
+--smart-case
+--colors=match:fg:cyan
+--colors=line:fg:yellow
+--line-number
+--follow
