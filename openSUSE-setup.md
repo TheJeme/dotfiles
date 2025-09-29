@@ -1,22 +1,24 @@
 # openSUSE setup
 ## Update
+```sh
 sudo zypper refresh && sudo zypper dup -y
+```
 
 ## Install Packages
 
-1. ```sh
-sudo zypper in -y sway xdg-desktop-portal xdg-desktop-portal-wlr grim slurp wf-recorder swappy wl-clipboard pipewire pipewire-alsa pipewire-pulseaudio pipewire-jack wireplumber mako cliphist brightnessctl playerctl wofi waybar swayidle swaylock-effects wlogout noto-fonts noto-fonts-cjk noto-fonts-emoji fira-code-fonts nerd-fonts git-lfs lazygit gh zoxide fzf inkscape neofetch btop rsync tailscale mpv ripgrep eza fd curl wget docker docker-compose lazydocker neovim vscode steam firefox chromium impala fastfetch krita localsend libreoffice obs-studio gamemode lutris flatpak rustup kitty thunar thunar-plugins gvfs tumbler network-manager-applet blueman kanshi gcc python python-pip gamescope
+```sh
+sudo zypper install -y sway xdg-desktop-portal xdg-desktop-portal-wlr grim slurp wf-recorder swappy wl-clipboard pipewire pipewire-alsa pipewire-pulseaudio pipewire-jack wireplumber mako cliphist brightnessctl playerctl wofi waybar swayidle swaylock-effects wlogout noto-fonts noto-fonts-cjk noto-fonts-emoji fira-code-fonts nerd-fonts git-lfs lazygit gh zoxide fzf inkscape neofetch btop rsync tailscale mpv ripgrep eza fd curl wget docker docker-compose lazydocker neovim vscode steam firefox chromium impala fastfetch krita localsend libreoffice obs-studio gamemode lutris flatpak rustup kitty thunar thunar-plugins gvfs tumbler network-manager-applet blueman kanshi gcc python python-pip gamescope
 ```
 
-2. ```sh
+```sh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
-3. ```sh
+```sh
 flatpak install -y flathub com.discordapp.Discord
 ```
 
-4. ```sh
+```sh
 flatpak install -y flathub net.davidotek.pupgui2 
 ```
 
