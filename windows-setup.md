@@ -18,15 +18,7 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\FileSystem" /t REG_DWORD /v LongP
 
 ## Install applications
 ```sh
-$ids = @(
-  'AutoHotkey.AutoHotkey','Microsoft.PowerToys','Microsoft.WindowsTerminal','voidtools.Everything','File-New-Project.EarTrumpet','ShareX.ShareX','AntibodySoftware.WizTree','SumatraPDF.SumatraPDF',
-  'Mozilla.Firefox','Google.Chrome','Brave.Brave',
-  'Git.Git','GitHub.GitLFS','Microsoft.VisualStudioCode','Anysphere.Cursor','Neovim.Neovim','Docker.DockerDesktop','Kitware.CMake','OpenJS.NodeJS.LTS','pnpm.pnpm','Python.Python.3.12','Rustlang.Rust.MSVC','GoLang.Go',
-  'Inkscape.Inkscape','dotPDN.PaintDotNet','KDE.Krita','OBSProject.OBSStudio','mpv.net','SpeedCrunch.SpeedCrunch',
-  'Discord.Discord','WhatsApp.WhatsApp','CiderCollective.Cider','WinSCP.WinSCP',
-  'TheDocumentFoundation.LibreOffice', 'Tailscale.Tailscale','WireGuard.WireGuard','Rufus.Rufus','qBittorrent.qBittorrent','LocalSend.LocalSend',
-  'Valve.Steam','EpicGames.EpicGamesLauncher','NVIDIA.GeForceExperience'
-); winget source update; foreach ($id in $ids) { winget install -e --id $id --accept-source-agreements --accept-package-agreements }
+$ids = @('AutoHotkey.AutoHotkey','Microsoft.PowerToys','Microsoft.WindowsTerminal','voidtools.Everything','File-New-Project.EarTrumpet','ShareX.ShareX','AntibodySoftware.WizTree','SumatraPDF.SumatraPDF','Mozilla.Firefox','Google.Chrome','Brave.Brave','Git.Git','GitHub.GitLFS','Microsoft.VisualStudioCode','Anysphere.Cursor','Neovim.Neovim','Docker.DockerDesktop','Kitware.CMake','OpenJS.NodeJS.LTS','pnpm.pnpm','Python.Python.3.12','Rustlang.Rust.MSVC','GoLang.Go','Inkscape.Inkscape','dotPDN.PaintDotNet','KDE.Krita','OBSProject.OBSStudio','mpv.net','SpeedCrunch.SpeedCrunch','Discord.Discord','WhatsApp.WhatsApp','CiderCollective.Cider','WinSCP.WinSCP','TheDocumentFoundation.LibreOffice','Tailscale.Tailscale','WireGuard.WireGuard','Rufus.Rufus','qBittorrent.qBittorrent','LocalSend.LocalSend','Valve.Steam','EpicGames.EpicGamesLauncher','NVIDIA.GeForceExperience'); winget source update; foreach ($id in $ids) { winget install -e --id $id --accept-source-agreements --accept-package-agreements }
 ```
 
 ## Update applications
@@ -35,6 +27,17 @@ winget source update
 winget upgrade --all --accept-source-agreements --accept-package-agreements
 ```
 
+## Install Scoop
+```sh
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned -Force
+iwr -useb get.scoop.sh | iex
+```
+
+## Install fonts
+```sh
+scoop bucket add nerd-fonts
+scoop install JetBrainsMono-NF CascadiaCode-NF FiraCode-NF
+```
 
 ## Installed applications
 - [AutoHotkey]()
