@@ -107,6 +107,12 @@ brew install --cask font-jetbrains-mono-nerd-font font-fira-code-nerd-font font-
 mas install 497799835
 ```
 
+## Set Git username and email
+```
+git config --global user.name "Eemeli Mark"
+git config --global user.email "eemelijoonatan@gmail.com"
+```
+
 ## Cleanup
 ```
 brew cleanup

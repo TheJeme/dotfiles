@@ -39,6 +39,12 @@ scoop bucket add nerd-fonts
 scoop install JetBrainsMono-NF CascadiaCode-NF FiraCode-NF
 ```
 
+## Set Git username and email
+```
+git config --global user.name "Eemeli Mark"
+git config --global user.email "eemelijoonatan@gmail.com"
+```
+
 ## Installed applications
 - [AutoHotkey](https://www.autohotkey.com/)
 - [PowerToys](https://docs.microsoft.com/powertoys/)
