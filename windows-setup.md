@@ -97,6 +97,3 @@ git config --global user.email "eemelijoonatan@gmail.com"
 - [Steam](https://store.steampowered.com)
 - [Epic Games Launcher](https://www.epicgames.com/store/en-US/download)
 - [Nvidia GeForce Experience](https://www.nvidia.com/geforce/geforce-experience/)
-
-
-
