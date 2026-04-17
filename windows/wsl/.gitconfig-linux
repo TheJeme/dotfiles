@@ -1,0 +1,26 @@
+[core]
+	autocrlf = input
+	pager = less -FRX
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = true
+
+[rebase]
+	autoStash = true
+	updateRefs = true
+
+[fetch]
+	prune = true
+
+[push]
+	autoSetupRemote = true
+	default = current
+
+[merge]
+	conflictstyle = zdiff3
+
+[rerere]
+	enabled = true

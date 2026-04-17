@@ -85,7 +85,6 @@ brew install \
 ```sh
 brew install --cask \
     visual-studio-code \
-    cursor \
     iterm2 \
     docker \
     postman \

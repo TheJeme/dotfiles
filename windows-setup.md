@@ -1,57 +1,66 @@
 # Windows setup
 
-## Update winget sources
+## Deploy dotfiles
 
-```
-winget source update
-```
-
-## Enable WSL2 and install Ubuntu
-
-```sh
-wsl --install -d Ubuntu
+```powershell
+pwsh -ExecutionPolicy Bypass -File .\windows\install.ps1
 ```
 
-## Enable dev mode and long paths
+This deploys the repo's Windows files to the user-scoped paths for a modular PowerShell profile, an AutoHotkey startup loader plus module files, and Windows Terminal. `tetrio-config.ttc` is copied to `%USERPROFILE%\Downloads\` for manual import.
 
-```sh
-reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" /t REG_DWORD /v "AllowDevelopmentWithoutDevLicense" /d 1 /f
-reg add "HKLM\SYSTEM\CurrentControlSet\Control\FileSystem" /t REG_DWORD /v LongPathsEnabled /d 1 /f
+## Configure Git
+
+```powershell
+pwsh -ExecutionPolicy Bypass -File .\windows\configure-git.ps1
 ```
 
-## Install applications
+This installs a managed `%USERPROFILE%\.gitconfig`, points Git at `%USERPROFILE%\.gitignore_global`, and writes `%USERPROFILE%\.gitconfig.local` with your current `user.name`, `user.email`, and `core.editor` so personal values stay local.
 
-```sh
-$ids = @('AutoHotkey.AutoHotkey','sharkdp.fd','ajeetdsouza.zoxide','junegunn.fzf','Microsoft.PowerShell','7zip.7zip','Microsoft.PowerToys','Microsoft.WindowsTerminal','voidtools.Everything','File-New-Project.EarTrumpet','Starship.Starship','ShareX.ShareX','AntibodySoftware.WizTree','SumatraPDF.SumatraPDF','Mozilla.Firefox','Google.Chrome','Brave.Brave','Git.Git','GitHub.GitLFS','Microsoft.VisualStudioCode','Anysphere.Cursor','Neovim.Neovim','Docker.DockerDesktop','Kitware.CMake','OpenJS.NodeJS.LTS','pnpm.pnpm','Python.Python.3.12','Rustlang.Rust.MSVC','GoLang.Go','Inkscape.Inkscape','dotPDN.PaintDotNet','KDE.Krita','OBSProject.OBSStudio','mpv.net','SpeedCrunch.SpeedCrunch','Discord.Discord','WhatsApp.WhatsApp','CiderCollective.Cider','WinSCP.WinSCP','TheDocumentFoundation.LibreOffice','Tailscale.Tailscale','WireGuard.WireGuard','Rufus.Rufus','qBittorrent.qBittorrent','LocalSend.LocalSend','Valve.Steam','EpicGames.EpicGamesLauncher','NVIDIA.GeForceExperience'); winget source update; foreach ($id in $ids) { winget install -e --id $id --accept-source-agreements --accept-package-agreements }
+## Configure Windows defaults
+
+```powershell
+pwsh -ExecutionPolicy Bypass -File .\windows\configure-windows.ps1 -InstallWslConfig
 ```
+
+This applies Explorer defaults, taskbar/search cleanup, developer defaults such as execution policy and long paths, optional consumer-noise reduction, and can import or export PowerToys settings backups.
+
+When `-InstallWslConfig` is used, it deploys `%USERPROFILE%\.wslconfig` and stages `wsl.conf` to `%USERPROFILE%\Downloads\wsl.conf` for manual copy into `/etc/wsl.conf` inside the distro.
+
+## Install packages
+
+```powershell
+pwsh -ExecutionPolicy Bypass -File .\windows\install-packages.ps1
+```
+
+Package groups live in `windows/packages.psd1`.
 
 ## Update applications
 
-```sh
-winget source update
-winget upgrade --all --accept-source-agreements --accept-package-agreements
+```
+pwsh -ExecutionPolicy Bypass -File .\windows\update-packages.ps1
 ```
 
-## Install Scoop
+## Bootstrap everything
 
-```sh
-Set-ExecutionPolicy -Scope CurrentUser RemoteSigned -Force
-iwr -useb get.scoop.sh | iex
+```powershell
+pwsh -ExecutionPolicy Bypass -File .\bootstrap.ps1 -InstallWslConfig
 ```
 
-## Install fonts
+## Check setup
 
-```sh
-scoop bucket add nerd-fonts
-scoop install JetBrainsMono-NF CascadiaCode-NF FiraCode-NF
+```powershell
+pwsh -ExecutionPolicy Bypass -File .\check.ps1
 ```
 
-## Set Git username and email
+## Ubuntu on WSL
 
+After cloning this repo inside Ubuntu, run:
+
+```bash
+~/dotfiles/windows/wsl/bootstrap-ubuntu.sh
 ```
-git config --global user.name "Eemeli Mark"
-git config --global user.email "eemelijoonatan@gmail.com"
-```
+
+This installs a lightweight CLI tool baseline and deploys managed `.bashrc` and Linux-side Git defaults.
 
 ## Installed applications
 
@@ -69,7 +78,6 @@ git config --global user.email "eemelijoonatan@gmail.com"
 - [Git](https://git-scm.com/)
 - [Git LFS](https://git-lfs.com/)
 - [VS Code](https://code.visualstudio.com)
-- [Cursor](https://www.cursor.so/)
 - [Neovim](https://neovim.io/)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - [CMake](https://cmake.org/)

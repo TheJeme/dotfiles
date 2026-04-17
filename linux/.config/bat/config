@@ -1,5 +1,0 @@
---style=changes,header,grid
---paging=auto
---wrap=never
---map-syntax .env:ini
---theme=TwoDark

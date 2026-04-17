@@ -1,0 +1,165 @@
+{
+  "editor.fontSize": 12,
+  "editor.tabSize": 2,
+  "editor.fontWeight": 400,
+  "editor.suggestSelection": "first",
+  "editor.semanticHighlighting.enabled": true,
+  "editor.codeLensFontFamily": "Fira Code, Consolas",
+  "editor.fontFamily": "Fira Code, Consolas",
+  "editor.fontLigatures": true,
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "zenMode.fullScreen": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.iconTheme": "vscode-icons",
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "workbench.startupEditor": "none",
+  "terminal.integrated.cursorStyle": "line",
+  "yaml.schemas": {
+    "file:///c%3A/Users/EemeliM/.vscode/extensions/atlassian.atlascode-3.0.9/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+  },
+  "editor.inlineSuggest.enabled": true,
+  "sonarlint.rules": {
+    "typescript:S6544": {
+      "level": "off"
+    },
+    "typescript:S4043": {
+      "level": "off"
+    }
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": true,
+    "scminput": false
+  },
+  "boot-java.rewrite.reconcile": true,
+  "cSpell.userWords": [
+    "Ailurus",
+    "antd",
+    "firestore",
+    "jwtauthenticationtoken",
+    "keycloak",
+    "Multitenant",
+    "tenantservice",
+    "vxcloud"
+  ],
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "diffEditor.ignoreTrimWhitespace": true,
+  "[csharp]": {
+    "editor.defaultFormatter": "csharpier.csharpier-vscode"
+  },
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java"
+  },
+  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "sonarlint.focusOnNewCode": false,
+  "editor.unicodeHighlight.invisibleCharacters": false,
+  "prettier.configPath": ".prettierrc",
+  "prettier.jsxSingleQuote": true,
+  "prettier.printWidth": 120,
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  },
+  "github.copilot.editor.enableAutoCompletions": true,
+  "[latex]": {
+    "editor.defaultFormatter": "mathematic.vscode-latex"
+  },
+  "workbench.editor.defaultBinaryEditor": "default",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "diffEditor.useInlineViewWhenSpaceIsLimited": false,
+  "workbench.editorAssociations": {
+    "*.copilotmd": "vscode.markdown.preview.editor",
+    "*.svg": "default"
+  },
+  "docker.extension.enableComposeLanguageServer": false,
+  "workbench.editor.empty.hint": "hidden",
+  "[yaml]": {
+    "diffEditor.ignoreTrimWhitespace": false
+  },
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "mdb.mcp.server": "prompt",
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "chat.tools.terminal.autoApprove": {
+    "docker logs": true,
+    "channel_closed": true,
+    "consumer": true,
+    "Connection": true,
+    "Channel\"": true,
+    "docker exec": true,
+    "docker compose": true,
+    "Channel": true,
+    "BasicQos": true,
+    "BasicConsume": true,
+    "AsyncEventingBasicConsumer": true,
+    "Started": true,
+    "docker ps": true,
+    "docker restart": true,
+    "curl": true,
+    "ConvertFrom-Json": true,
+    "Worker\"": true,
+    "2m": true,
+    "5m": true,
+    "40s": true,
+    "1m": true,
+    "30s": true,
+    ".Names": true,
+    ".Status": true,
+    "/^dotnet test --no-build --verbosity normal 2>&1 \\| Select-String \"Failed\" \\| Select-Object -First 25$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "dotnet build": true,
+    "dotnet test": true,
+    "k6": true,
+    "pnpm": true,
+    "git -C /home/eemelim/dev/cloud-ui": true,
+    "git pull": true
+  },
+  "sonarlint.connectedMode.connections.sonarcloud": [
+    {
+      "organizationKey": "vertexsystems",
+      "connectionId": "vertexsystems",
+      "region": "EU"
+    }
+  ],
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "git.ignoreRebaseWarning": true,
+  "remote.autoForwardPortsSource": "hybrid"
+}

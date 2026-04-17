@@ -17,6 +17,68 @@
                 "split": "auto"
             },
             "id": "User.splitPane.91AB55B1"
+        },
+        {
+            "command":
+            {
+                "action": "renameTab"
+            },
+            "id": "User.renameTab.1"
+        },
+        {
+            "command":
+            {
+                "action": "duplicateTab"
+            },
+            "id": "User.duplicateTab.1"
+        },
+        {
+            "command":
+            {
+                "action": "togglePaneZoom"
+            },
+            "id": "User.togglePaneZoom.1"
+        },
+        {
+            "command":
+            {
+                "action": "resizePane",
+                "direction": "left"
+            },
+            "id": "User.resizePaneLeft.1"
+        },
+        {
+            "command":
+            {
+                "action": "resizePane",
+                "direction": "right"
+            },
+            "id": "User.resizePaneRight.1"
+        },
+        {
+            "command":
+            {
+                "action": "resizePane",
+                "direction": "up"
+            },
+            "id": "User.resizePaneUp.1"
+        },
+        {
+            "command":
+            {
+                "action": "resizePane",
+                "direction": "down"
+            },
+            "id": "User.resizePaneDown.1"
+        },
+        {
+            "command":
+            {
+                "action": "splitPane",
+                "profile": "{d1b5a1d0-4df4-49a1-bf4e-7b5a6d624001}",
+                "split": "auto"
+            },
+            "id": "User.splitDocker.1"
         }
     ],
     "alwaysShowTabs": true,
@@ -42,7 +104,11 @@
             "keys": "ctrl+shift+t"
         },
         {
-            "id": null,
+            "command":
+            {
+                "action": "moveFocus",
+                "direction": "down"
+            },
             "keys": "alt+down"
         },
         {
@@ -50,7 +116,11 @@
             "keys": "alt+shift+d"
         },
         {
-            "id": null,
+            "command":
+            {
+                "action": "moveFocus",
+                "direction": "left"
+            },
             "keys": "alt+left"
         },
         {
@@ -70,15 +140,27 @@
             "keys": "alt+shift+h"
         },
         {
+            "id": "User.splitDocker.1",
+            "keys": "alt+shift+k"
+        },
+        {
             "id": "Terminal.FindText",
             "keys": "ctrl+f"
         },
         {
-            "id": null,
+            "command":
+            {
+                "action": "moveFocus",
+                "direction": "right"
+            },
             "keys": "alt+right"
         },
         {
-            "id": null,
+            "command":
+            {
+                "action": "moveFocus",
+                "direction": "up"
+            },
             "keys": "alt+up"
         },
         {
@@ -94,26 +176,66 @@
             "keys": "alt+5"
         },
         {
-            "id": null,
-            "keys": "ctrl+shift+\u00b4"
+            "id": "User.renameTab.1",
+            "keys": "ctrl+shift+r"
+        },
+        {
+            "id": "User.duplicateTab.1",
+            "keys": "ctrl+shift+d"
+        },
+        {
+            "id": "User.togglePaneZoom.1",
+            "keys": "alt+shift+enter"
+        },
+        {
+            "id": "Terminal.NextTab",
+            "keys": "ctrl+tab"
+        },
+        {
+            "id": "Terminal.PrevTab",
+            "keys": "ctrl+shift+tab"
+        },
+        {
+            "id": "Terminal.OpenSettings",
+            "keys": "ctrl+shift+,"
+        },
+        {
+            "id": "User.resizePaneLeft.1",
+            "keys": "alt+shift+left"
+        },
+        {
+            "id": "User.resizePaneRight.1",
+            "keys": "alt+shift+right"
+        },
+        {
+            "id": "User.resizePaneUp.1",
+            "keys": "alt+shift+up"
+        },
+        {
+            "id": "User.resizePaneDown.1",
+            "keys": "alt+shift+down"
         }
     ],
     "newTabMenu": 
     [
         {
-            "profile": null,
+            "profile": "{4f5a7c7e-7a5f-4b6f-9e18-0a8a1b77a7c1}",
             "type": "profile"
         },
         {
-            "profile": null,
+            "profile": "{2c4d6d1a-1b6b-4c68-9d3b-0b6f9b2d9c10}",
             "type": "profile"
         },
         {
-            "profile": null,
+            "profile": "{b453ae32-2d0e-5d76-a66c-df29f6ff2b79}",
             "type": "profile"
         },
         {
-            "profile": null,
+            "profile": "{d1b5a1d0-4df4-49a1-bf4e-7b5a6d624001}",
+            "type": "profile"
+        },
+        {
+            "profile": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
             "type": "profile"
         }
     ],
@@ -123,7 +245,7 @@
         {
             "antialiasingMode": "cleartype",
             "bellStyle": "none",
-            "colorScheme": "One Half Dark",
+            "colorScheme": "Slate Ember",
             "cursorShape": "bar",
             "font": 
             {
@@ -135,21 +257,40 @@
             "padding": "8, 8, 8, 8",
             "scrollbarState": "hidden",
             "startingDirectory": "%USERPROFILE%",
-            "useAcrylic": true
+            "useAcrylic": true,
+            "suppressApplicationTitle": true
         },
         "list": 
         [
             {
-                "commandline": "pwsh.exe",
+                "commandline": "pwsh.exe -NoLogo",
                 "guid": "{4f5a7c7e-7a5f-4b6f-9e18-0a8a1b77a7c1}",
                 "icon": "ms-appx:///ProfileIcons/pwsh.png",
-                "name": "PowerShell"
+                "name": "PowerShell",
+                "tabTitle": "pwsh"
             },
             {
                 "commandline": "wsl.exe -d Ubuntu",
                 "guid": "{2c4d6d1a-1b6b-4c68-9d3b-0b6f9b2d9c10}",
                 "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
-                "name": "Ubuntu"
+                "name": "Ubuntu",
+                "tabTitle": "ubuntu"
+            },
+            {
+                "commandline": "\"C:\\Program Files\\Git\\bin\\bash.exe\" --login -i",
+                "guid": "{b453ae32-2d0e-5d76-a66c-df29f6ff2b79}",
+                "hidden": false,
+                "icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
+                "name": "Git Bash",
+                "tabTitle": "git bash"
+            },
+            {
+                "commandline": "docker.exe",
+                "guid": "{d1b5a1d0-4df4-49a1-bf4e-7b5a6d624001}",
+                "hidden": false,
+                "icon": "C:\\Program Files\\Docker\\Docker\\Docker Desktop.exe",
+                "name": "Docker CLI",
+                "tabTitle": "docker"
             },
             {
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
@@ -157,7 +298,31 @@
             }
         ]
     },
-    "schemes": [],
+    "schemes": [
+        {
+            "background": "#11161D",
+            "black": "#1B222B",
+            "blue": "#6CA0FF",
+            "brightBlack": "#4A5568",
+            "brightBlue": "#8AB4FF",
+            "brightCyan": "#7FE3D8",
+            "brightGreen": "#9FD67A",
+            "brightPurple": "#C79BFF",
+            "brightRed": "#FF8F8F",
+            "brightWhite": "#F5F7FA",
+            "brightYellow": "#FFD580",
+            "cursorColor": "#F5F7FA",
+            "cyan": "#58C2B8",
+            "foreground": "#D8DEE9",
+            "green": "#7CB342",
+            "name": "Slate Ember",
+            "purple": "#A57BFF",
+            "red": "#E06C75",
+            "selectionBackground": "#2D3748",
+            "white": "#C7D1DB",
+            "yellow": "#D19A66"
+        }
+    ],
     "showTabsInTitlebar": true,
     "tabWidthMode": "equal",
     "themes": [],

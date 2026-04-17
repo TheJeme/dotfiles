@@ -1,0 +1,40 @@
+[include]
+	path = ~/.gitconfig.local
+
+[core]
+	excludesfile = ~/.gitignore_global
+	autocrlf = false
+	filemode = false
+	pager = less -FRX
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = true
+
+[rebase]
+	autoStash = true
+	updateRefs = true
+
+[fetch]
+	prune = true
+
+[push]
+	autoSetupRemote = true
+	default = current
+
+[merge]
+	conflictstyle = zdiff3
+
+[rerere]
+	enabled = true
+
+[diff]
+	colorMoved = default
+
+[color]
+	ui = auto
+
+[branch]
+	sort = -committerdate

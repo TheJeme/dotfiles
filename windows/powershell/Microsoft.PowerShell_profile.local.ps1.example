@@ -1,0 +1,6 @@
+# Copy this to Microsoft.PowerShell_profile.local.ps1 on a machine when you need
+# local-only aliases, environment variables, or paths that should not be checked in.
+#
+# Example:
+# $env:DOTFILES_PROJECT_ROOTS = 'D:\others;D:\work;C:\Users\you\Documents\notes'
+# function work { Set-Location 'D:\work' }
